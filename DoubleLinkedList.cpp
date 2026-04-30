@@ -149,4 +149,19 @@ public:
             i--;
         }
     }
-           
+
+    void searchData()
+    {
+        cout << "\nList is empty" << endl;
+        return;
+    }
+
+    int rollNo;
+    cout << "\nEnter the roll number to search: ";
+    cin >> rollNo;
+
+    Node *current = START;
+
+    while (current != NULL && current->noMhs != rollNo)
+        current = current->next;
+    
