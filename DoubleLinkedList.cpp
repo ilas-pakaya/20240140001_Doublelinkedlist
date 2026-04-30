@@ -19,7 +19,7 @@ public:
         START = NULL;
     }
 
-    woid addNode()
+    void addNode()
     {
         int nim;
         cout << "\nEnter the roll number of the student: ";
@@ -152,16 +152,29 @@ public:
 
     void searchData()
     {
-        cout << "\nList is empty" << endl;
-        return;
-    }
+        if (START == NULL)
+        {
+            cout << "\nList is empty" << endl;
+            return;
+        }
 
-    int rollNo;
-    cout << "\nEnter the roll number to search: ";
-    cin >> rollNo;
+        int rollNo;
+        cout << "\nEnter the roll number to search: ";
+        cin >> rollNo;
 
-    Node *current = START;
+        Node *current = START;
 
-    while (current != NULL && current->noMhs != rollNo)
-        current = current->next;
+        while (current != NULL && current->noMhs != rollNo)
+            current = current->next;
     
+        if (current == NULL)
+        {
+            cout << "Record not found\n";
+        }
+        else
+        {
+        cout << "Record found\n";
+        cout << "Roll number: " << current->noMhs << endl;
+        }
+    }
+};
